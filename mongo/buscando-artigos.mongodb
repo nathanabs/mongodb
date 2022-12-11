@@ -1,0 +1,19 @@
+use('blog');
+
+db.autores.find()
+
+db.autores.findOne({
+    "artigos.slug" : "projeto-caelum-nas-faculdades"
+});
+
+db.autores.findOne({
+    "artigos.slug" : "projeto-caelum-nas-faculdades"
+}, {
+    "artigos.titulo": 1, "artigos.conteudo": 1, "artigos.dataCriado":1
+})
+
+db.autores.findOne({
+    nome : "Gabriel Ferreira"
+}, {
+    "artigos.titulo": 1, "artigos.conteudo": 1, "artigos.dataCriado":1
+})

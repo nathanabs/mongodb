@@ -1,0 +1,21 @@
+use('blog');
+
+db.artigos.aggregate([
+    {
+        $unwind: "$comentarios"
+    },
+    {
+        $project: {
+            _id: 0,
+            idArtigo: "$_id",
+            nome : "$comentarios.nome",
+            email: "$comentarios.email",
+            texto: "$comentarios.texto",
+            data: "$comentarios.data"
+        }
+    },
+    {
+        $out: "comentarios"
+    }
+  
+])

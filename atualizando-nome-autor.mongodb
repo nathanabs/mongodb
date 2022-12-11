@@ -1,0 +1,24 @@
+use('blog');
+
+db.infoAutores.updateOne(
+    {
+        nome: "Gabriel Ferreira"
+    },
+    {
+        $set: {
+          nome: "Gabriel Ferreira dos Santos"
+        }
+    }
+)
+
+db.artigos.updateMany(
+    {
+        "autor.nome": "Gabriel Ferreira"
+    },
+    {
+        $set: {
+          "autor.nome": "Gabriel Ferreira dos Santos"
+        }
+    }
+)
+
